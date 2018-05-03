@@ -55,6 +55,11 @@ public class ScreenSize extends CordovaPlugin {
         density_bucket = "xxxhdpi";
       }
 
+      if(android.os.Build.VERSION.SDK_INT >= 23){
+        width = this.cordova.getActivity().getWindowManager().getDefaultDisplay().getMode().getPhysicalWidth();
+        height = this.cordova.getActivity().getWindowManager().getDefaultDisplay().getMode().getPhysicalHeight();
+      }
+
       JSONObject result = new JSONObject();
 
       try {
